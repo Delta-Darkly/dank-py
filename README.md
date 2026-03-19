@@ -33,8 +33,9 @@
   <a href="https://cloud.dank-ai.xyz"><strong>Dank Cloud</strong></a>
 </p>
 
-> [!TIP]
-> Turn existing Python agents into production-ready microservices in two commands, with no agent-code rewrites.
+<p align="center">
+  <strong>Turn existing Python agents into production-ready microservices in two commands, with no agent-code rewrites.</strong>
+</p>
 
 - ⚡ no code rewrites required
 - 🌐 standardized HTTP runtime contract
@@ -46,12 +47,10 @@
 > ☁️ If you want managed infrastructure instead of self-hosting containers, use [Dank Cloud](https://cloud.dank-ai.xyz).  
 > Dank Cloud can onboard directly from your GitHub repo and handles packaging, deploys, scaling, auth, logging/tracing & monitoring, and supporting infra (like hosted vector DB + MCP) for you.
 
-**In short:**
-
 - 🛠️ `dank-py`: local/self-hosted packaging and runtime control.
 - 🚀 Dank Cloud: managed microservice deployment and operations, built on top of `dank-py`.
 
-## Table of Contents
+<h2 id="table-of-contents">🗂️ Table of Contents</h2>
 
 - [Why dank-py](#why-dank-py)
 - [In 2 Commands](#in-2-commands)
@@ -68,7 +67,7 @@
 - [Troubleshooting](#troubleshooting)
 - [Release](#release)
 
-## Why dank-py
+<h2 id="why-dank-py">🧩 Why dank-py</h2>
 
 - 🧩 Works with existing agent code
   - Framework-agnostic support across LangChain, LangGraph, CrewAI, PydanticAI, LlamaIndex, or custom OpenAI/SDK implementations.
@@ -86,7 +85,7 @@
   - Run each agent in its own container, or bundle agents into one container with header-based routing.
   - Reduce footprint for compatible agents while keeping per-agent observability.
 
-## In 2 Commands
+<h2 id="in-2-commands">⚡ In 2 Commands</h2>
 
 ```bash
 dank-py auto-init --strict
@@ -99,7 +98,7 @@ That flow will:
 3. validate agents in an isolated environment,
 4. build and run containerized agent service(s).
 
-## Architecture
+<h2 id="architecture">🏗️ Architecture</h2>
 
 ```mermaid
 flowchart LR
@@ -111,7 +110,7 @@ flowchart LR
     E --> G["Run locally or self-host (Docker/K8s)"]
 ```
 
-## Install
+<h2 id="install">📥 Install</h2>
 
 ### Requirements
 
@@ -135,7 +134,7 @@ Both command names are available:
 - `dank`
 - `dank-py`
 
-## Quick Start
+<h2 id="quick-start">🚀 Quick Start</h2>
 
 ```bash
 # 1) Scaffold config and ignore files
@@ -163,7 +162,7 @@ Strict setup (includes full isolated validation):
 dank-py auto-init --strict
 ```
 
-## Command Reference
+<h2 id="command-reference">🛠️ Command Reference</h2>
 
 ### Version
 
@@ -440,7 +439,7 @@ dank-py clean [flags]
 | `--build-contexts` | Cleans only `.dank-py` build context directories. |
 | `--include-base` | Also removes local base image when cleaning images. |
 
-## Configuration Reference (`dank.config.json`)
+<h2 id="configuration-reference-dankconfigjson">⚙️ Configuration Reference (<code>dank.config.json</code>)</h2>
 
 ### Top-level fields
 
@@ -531,7 +530,7 @@ Default `dank-py run` behavior for this config:
 - one container for `lang-bundle`
 - one separate container for `custom-agent`
 
-## Runtime API Contract
+<h2 id="runtime-api-contract">🌐 Runtime API Contract</h2>
 
 All runtime containers expose:
 
@@ -588,7 +587,7 @@ Single-agent containers:
   - Optional request header (`true|1|yes|on`).
   - When enabled, `/prompt` includes full grouped trace payload in `metadata.trace`.
 
-## Logging and Observability
+<h2 id="logging-and-observability">📡 Logging and Observability</h2>
 
 Runtime keeps an in-memory log buffer and supports:
 - query endpoints (`/logs`, `/logs/stats`)
@@ -604,7 +603,7 @@ CLI support:
 - `dank-py logs`
 - `dank-py logs --follow <target>`
 
-## Environment and Secrets
+<h2 id="environment-and-secrets">🔐 Environment and Secrets</h2>
 
 ### Runtime env injection (recommended)
 
@@ -625,7 +624,7 @@ Recommended:
 - keep `.env` and `.env.*` ignored
 - inject secrets at runtime with `--env-file` / `-e`
 
-## Build vs Build:Prod
+<h2 id="build-vs-buildprod">🏭 Build vs Build:Prod</h2>
 
 - `build`
   - local Docker image build
@@ -636,7 +635,7 @@ Recommended:
 
 If you only need local execution, use `run` (or `build` + `run --no-build`).
 
-## Agent Examples
+<h2 id="agent-examples">🧪 Agent Examples</h2>
 
 See [`agent-examples/`](./agent-examples) for framework-diverse templates:
 
@@ -646,7 +645,7 @@ See [`agent-examples/`](./agent-examples) for framework-diverse templates:
 - [`04-llamaindex-query-agent`](./agent-examples/04-llamaindex-query-agent)
 - [`05-langgraph-websearch-agent`](./agent-examples/05-langgraph-websearch-agent)
 
-## Troubleshooting
+<h2 id="troubleshooting">🧯 Troubleshooting</h2>
 
 ### Docker not installed/running
 
@@ -677,12 +676,12 @@ dank-py deps --install-tools
 
 Use exact container name from `dank-py status`.
 
-## Release
+<h2 id="release">📦 Release</h2>
 
 Release and publish workflow:
 - [`RELEASE.md`](./RELEASE.md)
 - [`scripts/release.py`](./scripts/release.py)
 
-## License
+<h2 id="license">⚖️ License</h2>
 
 MIT
