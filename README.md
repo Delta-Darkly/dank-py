@@ -4,6 +4,8 @@
 
 <h1 align="center">dank-py</h1>
 
+<p align="center">🐍 &nbsp; 📦 &nbsp; 🌐 &nbsp; 📡</p>
+
 <p align="center">
   <strong>Framework-agnostic Python CLI for turning existing agent code into Dockerized HTTP microservices with a consistent runtime contract.</strong>
 </p>
@@ -31,49 +33,23 @@
   <a href="https://cloud.dank-ai.xyz"><strong>Dank Cloud</strong></a>
 </p>
 
+> [!TIP]
 > Turn existing Python agents into production-ready microservices in two commands, with no agent-code rewrites.
 
-<table>
-  <tr>
-    <td width="50%" valign="top">
-      <strong>⚡ no code rewrites required</strong>
-    </td>
-    <td width="50%" valign="top">
-      <strong>🌐 standardized HTTP runtime contract</strong>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <strong>🧪 repeatable dependency locking + validation</strong>
-    </td>
-    <td width="50%" valign="top">
-      <strong>📡 built-in observability (status, metrics, logs, traces)</strong>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2" valign="top">
-      <strong>📦 optional multi-agent bundling for runtime efficiency</strong>
-    </td>
-  </tr>
-</table>
+- ⚡ no code rewrites required
+- 🌐 standardized HTTP runtime contract
+- 🧪 repeatable dependency locking + validation
+- 📡 built-in observability (status, metrics, logs, traces)
+- 📦 optional multi-agent bundling for runtime efficiency
 
-<table>
-  <tr>
-    <td width="50%" valign="top">
-      ☁️ If you want managed infrastructure instead of self-hosting containers, use <a href="https://cloud.dank-ai.xyz"><strong>Dank Cloud</strong></a>.<br><br>
-      Dank Cloud can onboard directly from your GitHub repo and handles packaging, deploys, scaling, auth, logging/tracing &amp; monitoring, and supporting infra (like hosted vector DB + MCP) for you.
-    </td>
-    <td width="50%" valign="top">
-      <strong>In short:</strong><br><br>
-      🛠️ <code>dank-py</code>: local/self-hosted packaging and runtime control.<br><br>
-      🚀 Dank Cloud: managed microservice deployment and operations, built on top of <code>dank-py</code>.
-    </td>
-  </tr>
-</table>
+> [!NOTE]
+> ☁️ If you want managed infrastructure instead of self-hosting containers, use [Dank Cloud](https://cloud.dank-ai.xyz).  
+> Dank Cloud can onboard directly from your GitHub repo and handles packaging, deploys, scaling, auth, logging/tracing & monitoring, and supporting infra (like hosted vector DB + MCP) for you.
 
-<p align="center">
-  <img alt="divider" src="https://img.shields.io/badge/-core%20documentation-111827?style=for-the-badge">
-</p>
+**In short:**
+
+- 🛠️ `dank-py`: local/self-hosted packaging and runtime control.
+- 🚀 Dank Cloud: managed microservice deployment and operations, built on top of `dank-py`.
 
 ## Table of Contents
 
@@ -94,31 +70,23 @@
 
 ## Why dank-py
 
-<p align="center">
-  <img alt="section divider" src="https://img.shields.io/badge/-why%20dank--py-1F2937?style=flat-square">
-</p>
-
-- Works with existing agent code
+- 🧩 Works with existing agent code
   - Framework-agnostic support across LangChain, LangGraph, CrewAI, PydanticAI, LlamaIndex, or custom OpenAI/SDK implementations.
   - Auto-inspects entrypoints and I/O hints to bootstrap `dank.config.json`.
-- Production-ready runtime out of the box
+- 🛡️ Production-ready runtime out of the box
   - Consistent endpoints (`/health`, `/prompt`, `/status`, `/metrics`, `/logs`, `/traces`).
   - Input/output contract validation and strict output enforcement.
   - Native async/sync invocation handling for agent callables and methods.
   - Request tracing with trace IDs, per-agent log streams, and trace retrieval endpoints.
-- Reliable build and dependency flow
+- 🧪 Reliable build and dependency flow
   - Resolver-based lock generation (`requirements.lock.txt`).
   - Isolated validation in temporary virtual environments before build/run.
   - Build and production build workflows for local iteration and release pipelines.
-- Flexible multi-agent deployment
+- 📦 Flexible multi-agent deployment
   - Run each agent in its own container, or bundle agents into one container with header-based routing.
   - Reduce footprint for compatible agents while keeping per-agent observability.
 
 ## In 2 Commands
-
-<p align="center">
-  <img alt="section divider" src="https://img.shields.io/badge/-in%202%20commands-1F2937?style=flat-square">
-</p>
 
 ```bash
 dank-py auto-init --strict
@@ -133,10 +101,6 @@ That flow will:
 
 ## Architecture
 
-<p align="center">
-  <img alt="section divider" src="https://img.shields.io/badge/-architecture-1F2937?style=flat-square">
-</p>
-
 ```mermaid
 flowchart LR
     A["Existing Python Agent Code"] --> B["dank-py auto-init"]
@@ -148,10 +112,6 @@ flowchart LR
 ```
 
 ## Install
-
-<p align="center">
-  <img alt="section divider" src="https://img.shields.io/badge/-install-1F2937?style=flat-square">
-</p>
 
 ### Requirements
 
@@ -176,10 +136,6 @@ Both command names are available:
 - `dank-py`
 
 ## Quick Start
-
-<p align="center">
-  <img alt="section divider" src="https://img.shields.io/badge/-quick%20start-1F2937?style=flat-square">
-</p>
 
 ```bash
 # 1) Scaffold config and ignore files
@@ -208,10 +164,6 @@ dank-py auto-init --strict
 ```
 
 ## Command Reference
-
-<p align="center">
-  <img alt="section divider" src="https://img.shields.io/badge/-command%20reference-1F2937?style=flat-square">
-</p>
 
 ### Version
 
@@ -490,10 +442,6 @@ dank-py clean [flags]
 
 ## Configuration Reference (`dank.config.json`)
 
-<p align="center">
-  <img alt="section divider" src="https://img.shields.io/badge/-configuration%20reference-1F2937?style=flat-square">
-</p>
-
 ### Top-level fields
 
 | Field | Type | Required | Notes |
@@ -585,10 +533,6 @@ Default `dank-py run` behavior for this config:
 
 ## Runtime API Contract
 
-<p align="center">
-  <img alt="section divider" src="https://img.shields.io/badge/-runtime%20api%20contract-1F2937?style=flat-square">
-</p>
-
 All runtime containers expose:
 
 | Endpoint | Purpose |
@@ -646,10 +590,6 @@ Single-agent containers:
 
 ## Logging and Observability
 
-<p align="center">
-  <img alt="section divider" src="https://img.shields.io/badge/-logging%20and%20observability-1F2937?style=flat-square">
-</p>
-
 Runtime keeps an in-memory log buffer and supports:
 - query endpoints (`/logs`, `/logs/stats`)
 - websocket streaming (`/logs/stream`)
@@ -665,10 +605,6 @@ CLI support:
 - `dank-py logs --follow <target>`
 
 ## Environment and Secrets
-
-<p align="center">
-  <img alt="section divider" src="https://img.shields.io/badge/-environment%20and%20secrets-1F2937?style=flat-square">
-</p>
 
 ### Runtime env injection (recommended)
 
@@ -691,10 +627,6 @@ Recommended:
 
 ## Build vs Build:Prod
 
-<p align="center">
-  <img alt="section divider" src="https://img.shields.io/badge/-build%20vs%20build%3Aprod-1F2937?style=flat-square">
-</p>
-
 - `build`
   - local Docker image build
   - best for local development and quick iteration
@@ -706,10 +638,6 @@ If you only need local execution, use `run` (or `build` + `run --no-build`).
 
 ## Agent Examples
 
-<p align="center">
-  <img alt="section divider" src="https://img.shields.io/badge/-agent%20examples-1F2937?style=flat-square">
-</p>
-
 See [`agent-examples/`](./agent-examples) for framework-diverse templates:
 
 - [`01-multi-agent-mixed-repo`](./agent-examples/01-multi-agent-mixed-repo)
@@ -719,10 +647,6 @@ See [`agent-examples/`](./agent-examples) for framework-diverse templates:
 - [`05-langgraph-websearch-agent`](./agent-examples/05-langgraph-websearch-agent)
 
 ## Troubleshooting
-
-<p align="center">
-  <img alt="section divider" src="https://img.shields.io/badge/-troubleshooting-1F2937?style=flat-square">
-</p>
 
 ### Docker not installed/running
 
@@ -755,18 +679,10 @@ Use exact container name from `dank-py status`.
 
 ## Release
 
-<p align="center">
-  <img alt="section divider" src="https://img.shields.io/badge/-release-1F2937?style=flat-square">
-</p>
-
 Release and publish workflow:
 - [`RELEASE.md`](./RELEASE.md)
 - [`scripts/release.py`](./scripts/release.py)
 
 ## License
-
-<p align="center">
-  <img alt="section divider" src="https://img.shields.io/badge/-license-1F2937?style=flat-square">
-</p>
 
 MIT
